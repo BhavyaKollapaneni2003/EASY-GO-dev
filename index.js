@@ -1,23 +1,15 @@
-const express = require("express");
-const port = 8000;
-require("./db");
-var cors = require('cors') 
-const app = express();
-app.use(express.json());
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-app.use(cors());
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
 
-app.use("/api/auth", require("./routes/auth"));
-app.use("/api/travel", require("./routes/travel"));
-app.use("/api/ticket", require("./routes/ticket"));
-app.use("/api/item", require("./routes/item"));
-app.use("/api/help", require("./routes/help"));
-app.use("/api/event", require("./routes/event"));
-app.use("/api/accept", require("./routes/mail"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-app.listen(port, () => {
-  console.log(`easygo listening to port ${port}`);
-});
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
